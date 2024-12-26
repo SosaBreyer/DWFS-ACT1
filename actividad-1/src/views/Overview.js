@@ -8,10 +8,6 @@ function Overview() {
     const [searchItem, setSearchItem] = useState('');
     const [filteredBooks, setFilteredBooks] = useState([]);
 
-    useEffect(() => {
-        setFilteredBooks(books)
-    }, [books]);
-
     const handleInputChange = (e) => {
         const searchTerm = e.target.value;
         setSearchItem(searchTerm);
@@ -22,6 +18,10 @@ function Overview() {
 
         setFilteredBooks(filteredItems);
     }
+
+    useEffect(() => {
+        setFilteredBooks(books)
+    }, [books]);
 
     return (
         <main>
@@ -37,7 +37,8 @@ function Overview() {
                                     folks
                                     don’t simply skip over it entirely.
                                 </p>
-                                <input type="text"
+                                <input type="search"
+                                       name="search"
                                        value={searchItem}
                                        onChange={handleInputChange}
                                        placeholder="Buscar por título"
