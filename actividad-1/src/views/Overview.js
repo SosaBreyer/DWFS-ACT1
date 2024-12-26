@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {BookContext} from "../context/BookContext";
 import {Book} from "../components/Book";
+import Cart from "../components/Cart";
 
 
 function Overview() {
@@ -50,7 +51,7 @@ function Overview() {
             </div>
             <div className="row">
                 <div className="col-md-5 col-lg-4 order-md-last">
-                    ...
+                    <Cart></Cart>
                 </div>
                 <div className="col-md-7 col-lg-8">
                     <div className="album py-5 bg-body-tertiary">
