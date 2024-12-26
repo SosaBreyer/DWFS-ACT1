@@ -3,7 +3,6 @@ import {useParams} from "react-router";
 import {BookContext} from "../context/BookContext";
 
 
-
 const BookDetails = () => {
     const { bookId } = useParams();
     const { books } = useContext(BookContext);
