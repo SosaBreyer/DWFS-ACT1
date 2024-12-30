@@ -1,5 +1,6 @@
-import {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {CartContext} from "../context/CartContext";
+import {Quantifier} from "./Quantifier";
 
 const Cart = () => {
     const { cartItems } = useContext(CartContext);
@@ -21,10 +22,11 @@ const Cart = () => {
                 {
                     items.length > 0 ? (
                         items.map((item, index) => (
-                            <li key={index} className="list-group-item d-flex justify-content-between lh-sm">
-                                <div>
-                                    <h6 className="my-0">{item.title}</h6>
-                                    <small className="text-body-secondary">{item.author}</small>
+                            <li key={index} className="list-group-item d-flex align-items-center lh-sm">
+                                <Quantifier id={item.id} amount={item.amount}></Quantifier>
+                                <div className="text-start flex-grow-1 me-3">
+                                    <h6 className="my-0">{item.title.trim()}</h6>
+                                    <small className="text-body-secondary">{item.author.trim()}</small>
                                 </div>
                                 <span className="text-body-secondary">{item.price}€</span>
                             </li>
