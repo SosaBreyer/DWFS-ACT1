@@ -1,13 +1,14 @@
-import React, {useState} from "react";
+import React from "react";
 import {Footer} from "./components/Footer";
 import Router from "./routes/Router";
 import {BookContext} from "./context/BookContext";
 import {CartContext} from "./context/CartContext";
 import {useBooks} from "./hooks/useBooks";
+import {useLocalStorage} from "./hooks/useLocalStorage";
 
 function App() {
     const books = useBooks();
-    const [cartItems, setCartItems] = useState([]);
+    const [cartItems, setCartItems] = useLocalStorage();
 
     return (
         <BookContext.Provider value={{books}}>
