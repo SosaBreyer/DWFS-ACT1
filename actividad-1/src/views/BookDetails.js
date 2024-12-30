@@ -11,12 +11,19 @@ const BookDetails = () => {
     const bookDetail = books.find(book => book.id === bookId);
 
     if (!bookDetail) {
-        return <h2>Libro no encontrado</h2>;
+        return <main><h2>Libro no encontrado</h2></main>;
     }
 
     const addToCart = (book) => {
         let items = [...cartItems];
-        items.push(book);
+        let index = items.findIndex(item => item.id === book.id);
+        if (index !== -1) {
+            items[index].amount = items[index].amount +1;
+        } else {
+            book['amount'] = 1;
+            items.push(book);
+        }
+
         setCartItems(items);
     }
 
